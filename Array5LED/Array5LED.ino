@@ -4,7 +4,7 @@ const int ledBlue =5;
 const int totalStates =11;
 
 int ledState[totalStates];
-int ledDuration[totalStates]={200,400,500,600,700,800,100,75,50,50};
+int ledDuration[totalStates]={200,400,200,400,200,400,200,50,50,1000};
 void setup() {
   pinMode(ledGreen,OUTPUT);
   pinMode(ledBlue,OUTPUT);

@@ -56,7 +56,7 @@ int LED(int Pin, int Intensity)
 {
   //digitalWrite(LED_BUILTIN, HIGH);   // turn the LED on (HIGH is the voltage level)
   analogWrite(Pin, Intensity);
-  delay(10);                       // wait for a second
+//  delay();                       // wait for a second
   //digitalWrite(LED_BUILTIN, LOW);    // turn the LED off by making the voltage LOW
   //digitalWrite(RED_PIN, Red_Intensity);
   //delay(.1);                       // wait for a second
