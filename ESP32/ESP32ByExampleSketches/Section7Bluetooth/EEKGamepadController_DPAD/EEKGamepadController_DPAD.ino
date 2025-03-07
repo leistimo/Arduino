@@ -2,8 +2,8 @@
 #include <Adafruit_SSD1306.h>
 #include <Adafruit_Sensor.h>
 
-// #define Clone
-#define Huzzah
+#define Clone
+//#define Huzzah
 
 #ifdef Huzzah
 // Define LED Pins Huzzah Board Top Red Blue Top Green Yellow

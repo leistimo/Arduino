@@ -10,7 +10,7 @@
 // Define LED Pins Huzzah Board Top Red Blue Top Green Yellow
 // Define LED Pins Huzzah Board LEFT FORWARD RIGHT BACK
 #define Top_Red 12
-#define Blue 27
+#define Top_Blue 27
 #define Top_Green 33
 #define Bottom_Red 26
 #define Yellow 25
@@ -21,10 +21,10 @@
 // Define LED Pins Clone Board Top Red Blue Top Green Yellow
 // Define LED Pins Clone Board LEFT FORWARD RIGHT BACK
 #define Top_Red 13
-#define Blue 12
+#define Top_Blue 12
 #define Top_Green 14
 #define Bottom_Red 27
-#define Yellow 26
+#define Bottom_Yellow 26
 #define Bottom_Green 25
 #endif
 
@@ -69,16 +69,16 @@ void setup() {
   display.setCursor(0, 0);
 
   pinMode(Top_Red, OUTPUT);
-  pinMode(Blue, OUTPUT);
+  pinMode(Top_Blue, OUTPUT);
   pinMode(Top_Green, OUTPUT);
   pinMode(Bottom_Red, OUTPUT);
-  pinMode(Yellow, OUTPUT);
+  pinMode(Bottom_Yellow, OUTPUT);
   pinMode(Bottom_Green, OUTPUT);
   digitalWrite(Top_Red, LOW);
-  digitalWrite(Blue, LOW);
+  digitalWrite(Top_Blue, LOW);
   digitalWrite(Top_Green, LOW);
   digitalWrite(Bottom_Red, LOW);
-  digitalWrite(Yellow, LOW);
+  digitalWrite(Bottom_Yellow, LOW);
   digitalWrite(Bottom_Green, LOW);
 
   Serial.print("Soft-AP IP address = ");
@@ -111,18 +111,34 @@ void loop() {
     display.println(packetBuffer);
     display.display();
     String command = String((char *)packetBuffer);
-    if (command.indexOf("blue") >= 0) {
-      toggle_led(Blue);
-    } else if (command.indexOf("hello") >= 0) {
+    if (command.indexOf("TopBlue") >= 0) {
+      toggle_led(Top_Blue);
+    } 
+      else if (command.indexOf("TopRed") >= 0) {
+      toggle_led(Top_Red);
+    }
+      else if (command.indexOf("TopGreen") >= 0) {
+      toggle_led(Top_Green);
+    }
+      else if (command.indexOf("BottomRed") >= 0) {
+      toggle_led(Bottom_Red);
+    }
+      else if (command.indexOf("BottomYellow") >= 0) {
+      toggle_led(Bottom_Yellow);
+    }
+      else if (command.indexOf("BottomGreen") >= 0) {
+      toggle_led(Bottom_Green);
+    }
+      else if (command.indexOf("hello") >= 0) {
       toggle_led(Top_Red);
       delay(1000);
-      toggle_led(Blue);
+      toggle_led(Top_Blue);
       delay(1000);
       toggle_led(Top_Green);
       delay(1000);
       toggle_led(Bottom_Red);
       delay(1000);
-      toggle_led(Yellow);
+      toggle_led(Bottom_Yellow);
       delay(1000);
       toggle_led(Bottom_Green);
       delay(1000);
